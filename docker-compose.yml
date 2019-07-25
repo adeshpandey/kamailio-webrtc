@@ -1,0 +1,21 @@
+version: '3.1'
+
+services: 
+  db:
+    image: mariadb
+    volumes:
+      - ./mysql:/docker-entrypoint-initdb.d
+    environment: 
+      MYSQL_DATABASE: kamailio
+      MYSQL_USER: kamailio
+      MYSQL_PASSWORD: kamailiorw
+      MYSQL_ROOT_PASSWORD: kamailiorw
+  kamailio:
+    image: 'kamailio/kamailio:5.2.3-bionic'
+    restart: unless-stopped
+    volumes:
+      - ./configs:/etc/kamailio
+    ports:
+      - 5060:5060
+    depends_on:
+      - db
