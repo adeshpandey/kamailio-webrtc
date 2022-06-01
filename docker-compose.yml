@@ -14,6 +14,15 @@ services:
     volumes:
       - postgres-vol:/bitnami/postgresql
     restart: unless-stopped
+  rtpproxy:
+    build: ./rtpproxy
+    image: adeshpandey/rtpproxy
+    ports:
+      - 10000-10020:10000-10020/udp
+    environment:
+      - PUBLIC_IP=${PUBLIC_IP}
+      - START_PORT=10000
+      - END_PORT=10020
   kamailio:
     image: 'kamailio/kamailio:5.2.3-bionic'
     restart: unless-stopped
@@ -24,5 +33,7 @@ services:
       - 5060:5060
     depends_on:
       - db
+      - rtpproxy
+    command: "-l udp:0.0.0.0:5060/${PUBLIC_IP}:5060 -l tcp:0.0.0.0:5060/${PUBLIC_IP}"
 volumes:
   postgres-vol:
