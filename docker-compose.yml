@@ -1,21 +1,28 @@
-version: '3.1'
+version: '3.9'
 
 services: 
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8081:8080
   db:
-    image: mariadb
+    image: bitnami/postgresql:12.5.0
+    environment:
+      POSTGRESQL_USERNAME: ${PGUSERNAME}
+      POSTGRESQL_PASSWORD: ${PGPASSWORD}
     volumes:
-      - ./mysql:/docker-entrypoint-initdb.d
-    environment: 
-      MYSQL_DATABASE: kamailio
-      MYSQL_USER: kamailio
-      MYSQL_PASSWORD: kamailiorw
-      MYSQL_ROOT_PASSWORD: kamailiorw
+      - postgres-vol:/bitnami/postgresql
+    restart: unless-stopped
   kamailio:
     image: 'kamailio/kamailio:5.2.3-bionic'
     restart: unless-stopped
     volumes:
-      - ./configs:/etc/kamailio
+      - ./kamailio/kamctlrc:/etc/kamailio/kamctlrc
+      - ./kamailio/kamailio.cfg:/etc/kamailio/kamailio.cfg
     ports:
       - 5060:5060
     depends_on:
       - db
+volumes:
+  postgres-vol:
