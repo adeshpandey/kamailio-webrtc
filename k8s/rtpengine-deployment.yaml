@@ -1,0 +1,1962 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -f k8s-compose.yml -o k8s/
+    kompose.version: 1.26.1 (HEAD)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: rtpengine
+  name: rtpengine
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: rtpengine
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert -f k8s-compose.yml -o k8s/
+        kompose.version: 1.26.1 (HEAD)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: rtpengine
+    spec:
+      hostname: rtpengine
+      containers:
+        - env:
+            - name: END_PORT
+              value: "11000"
+            - name: PUBLIC_IP
+              value: "192.168.59.105"
+            - name: START_PORT
+              value: "10021"
+          image: adeshpandey/rtpengine
+          name: rtpengine
+          ports:
+            - containerPort: 22222
+              protocol: UDP 
+            - containerPort: 10041
+              protocol: UDP
+            - containerPort: 10042
+              protocol: UDP
+            - containerPort: 10043
+              protocol: UDP
+            - containerPort: 10044
+              protocol: UDP
+            - containerPort: 10045
+              protocol: UDP
+            - containerPort: 10046
+              protocol: UDP
+            - containerPort: 10047
+              protocol: UDP
+            - containerPort: 10048
+              protocol: UDP
+            - containerPort: 10049
+              protocol: UDP
+            - containerPort: 10050
+              protocol: UDP
+            - containerPort: 10051
+              protocol: UDP
+            - containerPort: 10052
+              protocol: UDP
+            - containerPort: 10053
+              protocol: UDP
+            - containerPort: 10054
+              protocol: UDP
+            - containerPort: 10055
+              protocol: UDP
+            - containerPort: 10056
+              protocol: UDP
+            - containerPort: 10057
+              protocol: UDP
+            - containerPort: 10058
+              protocol: UDP
+            - containerPort: 10059
+              protocol: UDP
+            - containerPort: 10060
+              protocol: UDP
+            - containerPort: 10061
+              protocol: UDP
+            - containerPort: 10062
+              protocol: UDP
+            - containerPort: 10063
+              protocol: UDP
+            - containerPort: 10064
+              protocol: UDP
+            - containerPort: 10065
+              protocol: UDP
+            - containerPort: 10066
+              protocol: UDP
+            - containerPort: 10067
+              protocol: UDP
+            - containerPort: 10068
+              protocol: UDP
+            - containerPort: 10069
+              protocol: UDP
+            - containerPort: 10070
+              protocol: UDP
+            - containerPort: 10071
+              protocol: UDP
+            - containerPort: 10072
+              protocol: UDP
+            - containerPort: 10073
+              protocol: UDP
+            - containerPort: 10074
+              protocol: UDP
+            - containerPort: 10075
+              protocol: UDP
+            - containerPort: 10076
+              protocol: UDP
+            - containerPort: 10077
+              protocol: UDP
+            - containerPort: 10078
+              protocol: UDP
+            - containerPort: 10079
+              protocol: UDP
+            - containerPort: 10080
+              protocol: UDP
+            - containerPort: 10081
+              protocol: UDP
+            - containerPort: 10082
+              protocol: UDP
+            - containerPort: 10083
+              protocol: UDP
+            - containerPort: 10084
+              protocol: UDP
+            - containerPort: 10085
+              protocol: UDP
+            - containerPort: 10086
+              protocol: UDP
+            - containerPort: 10087
+              protocol: UDP
+            - containerPort: 10088
+              protocol: UDP
+            - containerPort: 10089
+              protocol: UDP
+            - containerPort: 10090
+              protocol: UDP
+            - containerPort: 10091
+              protocol: UDP
+            - containerPort: 10092
+              protocol: UDP
+            - containerPort: 10093
+              protocol: UDP
+            - containerPort: 10094
+              protocol: UDP
+            - containerPort: 10095
+              protocol: UDP
+            - containerPort: 10096
+              protocol: UDP
+            - containerPort: 10097
+              protocol: UDP
+            - containerPort: 10098
+              protocol: UDP
+            - containerPort: 10099
+              protocol: UDP
+            - containerPort: 10100
+              protocol: UDP
+            - containerPort: 10101
+              protocol: UDP
+            - containerPort: 10102
+              protocol: UDP
+            - containerPort: 10103
+              protocol: UDP
+            - containerPort: 10104
+              protocol: UDP
+            - containerPort: 10105
+              protocol: UDP
+            - containerPort: 10106
+              protocol: UDP
+            - containerPort: 10107
+              protocol: UDP
+            - containerPort: 10108
+              protocol: UDP
+            - containerPort: 10109
+              protocol: UDP
+            - containerPort: 10110
+              protocol: UDP
+            - containerPort: 10111
+              protocol: UDP
+            - containerPort: 10112
+              protocol: UDP
+            - containerPort: 10113
+              protocol: UDP
+            - containerPort: 10114
+              protocol: UDP
+            - containerPort: 10115
+              protocol: UDP
+            - containerPort: 10116
+              protocol: UDP
+            - containerPort: 10117
+              protocol: UDP
+            - containerPort: 10118
+              protocol: UDP
+            - containerPort: 10119
+              protocol: UDP
+            - containerPort: 10120
+              protocol: UDP
+            - containerPort: 10121
+              protocol: UDP
+            - containerPort: 10122
+              protocol: UDP
+            - containerPort: 10123
+              protocol: UDP
+            - containerPort: 10124
+              protocol: UDP
+            - containerPort: 10125
+              protocol: UDP
+            - containerPort: 10126
+              protocol: UDP
+            - containerPort: 10127
+              protocol: UDP
+            - containerPort: 10128
+              protocol: UDP
+            - containerPort: 10129
+              protocol: UDP
+            - containerPort: 10130
+              protocol: UDP
+            - containerPort: 10131
+              protocol: UDP
+            - containerPort: 10132
+              protocol: UDP
+            - containerPort: 10133
+              protocol: UDP
+            - containerPort: 10134
+              protocol: UDP
+            - containerPort: 10135
+              protocol: UDP
+            - containerPort: 10136
+              protocol: UDP
+            - containerPort: 10137
+              protocol: UDP
+            - containerPort: 10138
+              protocol: UDP
+            - containerPort: 10139
+              protocol: UDP
+            - containerPort: 10140
+              protocol: UDP
+            - containerPort: 10141
+              protocol: UDP
+            - containerPort: 10142
+              protocol: UDP
+            - containerPort: 10143
+              protocol: UDP
+            - containerPort: 10144
+              protocol: UDP
+            - containerPort: 10145
+              protocol: UDP
+            - containerPort: 10146
+              protocol: UDP
+            - containerPort: 10147
+              protocol: UDP
+            - containerPort: 10148
+              protocol: UDP
+            - containerPort: 10149
+              protocol: UDP
+            - containerPort: 10150
+              protocol: UDP
+            - containerPort: 10151
+              protocol: UDP
+            - containerPort: 10152
+              protocol: UDP
+            - containerPort: 10153
+              protocol: UDP
+            - containerPort: 10154
+              protocol: UDP
+            - containerPort: 10155
+              protocol: UDP
+            - containerPort: 10156
+              protocol: UDP
+            - containerPort: 10157
+              protocol: UDP
+            - containerPort: 10158
+              protocol: UDP
+            - containerPort: 10159
+              protocol: UDP
+            - containerPort: 10160
+              protocol: UDP
+            - containerPort: 10161
+              protocol: UDP
+            - containerPort: 10162
+              protocol: UDP
+            - containerPort: 10163
+              protocol: UDP
+            - containerPort: 10164
+              protocol: UDP
+            - containerPort: 10165
+              protocol: UDP
+            - containerPort: 10166
+              protocol: UDP
+            - containerPort: 10167
+              protocol: UDP
+            - containerPort: 10168
+              protocol: UDP
+            - containerPort: 10169
+              protocol: UDP
+            - containerPort: 10170
+              protocol: UDP
+            - containerPort: 10171
+              protocol: UDP
+            - containerPort: 10172
+              protocol: UDP
+            - containerPort: 10173
+              protocol: UDP
+            - containerPort: 10174
+              protocol: UDP
+            - containerPort: 10175
+              protocol: UDP
+            - containerPort: 10176
+              protocol: UDP
+            - containerPort: 10177
+              protocol: UDP
+            - containerPort: 10178
+              protocol: UDP
+            - containerPort: 10179
+              protocol: UDP
+            - containerPort: 10180
+              protocol: UDP
+            - containerPort: 10181
+              protocol: UDP
+            - containerPort: 10182
+              protocol: UDP
+            - containerPort: 10183
+              protocol: UDP
+            - containerPort: 10184
+              protocol: UDP
+            - containerPort: 10185
+              protocol: UDP
+            - containerPort: 10186
+              protocol: UDP
+            - containerPort: 10187
+              protocol: UDP
+            - containerPort: 10188
+              protocol: UDP
+            - containerPort: 10189
+              protocol: UDP
+            - containerPort: 10190
+              protocol: UDP
+            - containerPort: 10191
+              protocol: UDP
+            - containerPort: 10192
+              protocol: UDP
+            - containerPort: 10193
+              protocol: UDP
+            - containerPort: 10194
+              protocol: UDP
+            - containerPort: 10195
+              protocol: UDP
+            - containerPort: 10196
+              protocol: UDP
+            - containerPort: 10197
+              protocol: UDP
+            - containerPort: 10198
+              protocol: UDP
+            - containerPort: 10199
+              protocol: UDP
+            - containerPort: 10200
+              protocol: UDP
+            - containerPort: 10201
+              protocol: UDP
+            - containerPort: 10202
+              protocol: UDP
+            - containerPort: 10203
+              protocol: UDP
+            - containerPort: 10204
+              protocol: UDP
+            - containerPort: 10205
+              protocol: UDP
+            - containerPort: 10206
+              protocol: UDP
+            - containerPort: 10207
+              protocol: UDP
+            - containerPort: 10208
+              protocol: UDP
+            - containerPort: 10209
+              protocol: UDP
+            - containerPort: 10210
+              protocol: UDP
+            - containerPort: 10211
+              protocol: UDP
+            - containerPort: 10212
+              protocol: UDP
+            - containerPort: 10213
+              protocol: UDP
+            - containerPort: 10214
+              protocol: UDP
+            - containerPort: 10215
+              protocol: UDP
+            - containerPort: 10216
+              protocol: UDP
+            - containerPort: 10217
+              protocol: UDP
+            - containerPort: 10218
+              protocol: UDP
+            - containerPort: 10219
+              protocol: UDP
+            - containerPort: 10220
+              protocol: UDP
+            - containerPort: 10221
+              protocol: UDP
+            - containerPort: 10222
+              protocol: UDP
+            - containerPort: 10223
+              protocol: UDP
+            - containerPort: 10224
+              protocol: UDP
+            - containerPort: 10225
+              protocol: UDP
+            - containerPort: 10226
+              protocol: UDP
+            - containerPort: 10227
+              protocol: UDP
+            - containerPort: 10228
+              protocol: UDP
+            - containerPort: 10229
+              protocol: UDP
+            - containerPort: 10230
+              protocol: UDP
+            - containerPort: 10231
+              protocol: UDP
+            - containerPort: 10232
+              protocol: UDP
+            - containerPort: 10233
+              protocol: UDP
+            - containerPort: 10234
+              protocol: UDP
+            - containerPort: 10235
+              protocol: UDP
+            - containerPort: 10236
+              protocol: UDP
+            - containerPort: 10237
+              protocol: UDP
+            - containerPort: 10238
+              protocol: UDP
+            - containerPort: 10239
+              protocol: UDP
+            - containerPort: 10240
+              protocol: UDP
+            - containerPort: 10241
+              protocol: UDP
+            - containerPort: 10242
+              protocol: UDP
+            - containerPort: 10243
+              protocol: UDP
+            - containerPort: 10244
+              protocol: UDP
+            - containerPort: 10245
+              protocol: UDP
+            - containerPort: 10246
+              protocol: UDP
+            - containerPort: 10247
+              protocol: UDP
+            - containerPort: 10248
+              protocol: UDP
+            - containerPort: 10249
+              protocol: UDP
+            - containerPort: 10250
+              protocol: UDP
+            - containerPort: 10251
+              protocol: UDP
+            - containerPort: 10252
+              protocol: UDP
+            - containerPort: 10253
+              protocol: UDP
+            - containerPort: 10254
+              protocol: UDP
+            - containerPort: 10255
+              protocol: UDP
+            - containerPort: 10256
+              protocol: UDP
+            - containerPort: 10257
+              protocol: UDP
+            - containerPort: 10258
+              protocol: UDP
+            - containerPort: 10259
+              protocol: UDP
+            - containerPort: 10260
+              protocol: UDP
+            - containerPort: 10261
+              protocol: UDP
+            - containerPort: 10262
+              protocol: UDP
+            - containerPort: 10263
+              protocol: UDP
+            - containerPort: 10264
+              protocol: UDP
+            - containerPort: 10265
+              protocol: UDP
+            - containerPort: 10266
+              protocol: UDP
+            - containerPort: 10267
+              protocol: UDP
+            - containerPort: 10268
+              protocol: UDP
+            - containerPort: 10269
+              protocol: UDP
+            - containerPort: 10270
+              protocol: UDP
+            - containerPort: 10271
+              protocol: UDP
+            - containerPort: 10272
+              protocol: UDP
+            - containerPort: 10273
+              protocol: UDP
+            - containerPort: 10274
+              protocol: UDP
+            - containerPort: 10275
+              protocol: UDP
+            - containerPort: 10276
+              protocol: UDP
+            - containerPort: 10277
+              protocol: UDP
+            - containerPort: 10278
+              protocol: UDP
+            - containerPort: 10279
+              protocol: UDP
+            - containerPort: 10280
+              protocol: UDP
+            - containerPort: 10281
+              protocol: UDP
+            - containerPort: 10282
+              protocol: UDP
+            - containerPort: 10283
+              protocol: UDP
+            - containerPort: 10284
+              protocol: UDP
+            - containerPort: 10285
+              protocol: UDP
+            - containerPort: 10286
+              protocol: UDP
+            - containerPort: 10287
+              protocol: UDP
+            - containerPort: 10288
+              protocol: UDP
+            - containerPort: 10289
+              protocol: UDP
+            - containerPort: 10290
+              protocol: UDP
+            - containerPort: 10291
+              protocol: UDP
+            - containerPort: 10292
+              protocol: UDP
+            - containerPort: 10293
+              protocol: UDP
+            - containerPort: 10294
+              protocol: UDP
+            - containerPort: 10295
+              protocol: UDP
+            - containerPort: 10296
+              protocol: UDP
+            - containerPort: 10297
+              protocol: UDP
+            - containerPort: 10298
+              protocol: UDP
+            - containerPort: 10299
+              protocol: UDP
+            - containerPort: 10300
+              protocol: UDP
+            - containerPort: 10301
+              protocol: UDP
+            - containerPort: 10302
+              protocol: UDP
+            - containerPort: 10303
+              protocol: UDP
+            - containerPort: 10304
+              protocol: UDP
+            - containerPort: 10305
+              protocol: UDP
+            - containerPort: 10306
+              protocol: UDP
+            - containerPort: 10307
+              protocol: UDP
+            - containerPort: 10308
+              protocol: UDP
+            - containerPort: 10309
+              protocol: UDP
+            - containerPort: 10310
+              protocol: UDP
+            - containerPort: 10311
+              protocol: UDP
+            - containerPort: 10312
+              protocol: UDP
+            - containerPort: 10313
+              protocol: UDP
+            - containerPort: 10314
+              protocol: UDP
+            - containerPort: 10315
+              protocol: UDP
+            - containerPort: 10316
+              protocol: UDP
+            - containerPort: 10317
+              protocol: UDP
+            - containerPort: 10318
+              protocol: UDP
+            - containerPort: 10319
+              protocol: UDP
+            - containerPort: 10320
+              protocol: UDP
+            - containerPort: 10321
+              protocol: UDP
+            - containerPort: 10322
+              protocol: UDP
+            - containerPort: 10323
+              protocol: UDP
+            - containerPort: 10324
+              protocol: UDP
+            - containerPort: 10325
+              protocol: UDP
+            - containerPort: 10326
+              protocol: UDP
+            - containerPort: 10327
+              protocol: UDP
+            - containerPort: 10328
+              protocol: UDP
+            - containerPort: 10329
+              protocol: UDP
+            - containerPort: 10330
+              protocol: UDP
+            - containerPort: 10331
+              protocol: UDP
+            - containerPort: 10332
+              protocol: UDP
+            - containerPort: 10333
+              protocol: UDP
+            - containerPort: 10334
+              protocol: UDP
+            - containerPort: 10335
+              protocol: UDP
+            - containerPort: 10336
+              protocol: UDP
+            - containerPort: 10337
+              protocol: UDP
+            - containerPort: 10338
+              protocol: UDP
+            - containerPort: 10339
+              protocol: UDP
+            - containerPort: 10340
+              protocol: UDP
+            - containerPort: 10341
+              protocol: UDP
+            - containerPort: 10342
+              protocol: UDP
+            - containerPort: 10343
+              protocol: UDP
+            - containerPort: 10344
+              protocol: UDP
+            - containerPort: 10345
+              protocol: UDP
+            - containerPort: 10346
+              protocol: UDP
+            - containerPort: 10347
+              protocol: UDP
+            - containerPort: 10348
+              protocol: UDP
+            - containerPort: 10349
+              protocol: UDP
+            - containerPort: 10350
+              protocol: UDP
+            - containerPort: 10351
+              protocol: UDP
+            - containerPort: 10352
+              protocol: UDP
+            - containerPort: 10353
+              protocol: UDP
+            - containerPort: 10354
+              protocol: UDP
+            - containerPort: 10355
+              protocol: UDP
+            - containerPort: 10356
+              protocol: UDP
+            - containerPort: 10357
+              protocol: UDP
+            - containerPort: 10358
+              protocol: UDP
+            - containerPort: 10359
+              protocol: UDP
+            - containerPort: 10360
+              protocol: UDP
+            - containerPort: 10361
+              protocol: UDP
+            - containerPort: 10362
+              protocol: UDP
+            - containerPort: 10363
+              protocol: UDP
+            - containerPort: 10364
+              protocol: UDP
+            - containerPort: 10365
+              protocol: UDP
+            - containerPort: 10366
+              protocol: UDP
+            - containerPort: 10367
+              protocol: UDP
+            - containerPort: 10368
+              protocol: UDP
+            - containerPort: 10369
+              protocol: UDP
+            - containerPort: 10370
+              protocol: UDP
+            - containerPort: 10371
+              protocol: UDP
+            - containerPort: 10372
+              protocol: UDP
+            - containerPort: 10373
+              protocol: UDP
+            - containerPort: 10374
+              protocol: UDP
+            - containerPort: 10375
+              protocol: UDP
+            - containerPort: 10376
+              protocol: UDP
+            - containerPort: 10377
+              protocol: UDP
+            - containerPort: 10378
+              protocol: UDP
+            - containerPort: 10379
+              protocol: UDP
+            - containerPort: 10380
+              protocol: UDP
+            - containerPort: 10381
+              protocol: UDP
+            - containerPort: 10382
+              protocol: UDP
+            - containerPort: 10383
+              protocol: UDP
+            - containerPort: 10384
+              protocol: UDP
+            - containerPort: 10385
+              protocol: UDP
+            - containerPort: 10386
+              protocol: UDP
+            - containerPort: 10387
+              protocol: UDP
+            - containerPort: 10388
+              protocol: UDP
+            - containerPort: 10389
+              protocol: UDP
+            - containerPort: 10390
+              protocol: UDP
+            - containerPort: 10391
+              protocol: UDP
+            - containerPort: 10392
+              protocol: UDP
+            - containerPort: 10393
+              protocol: UDP
+            - containerPort: 10394
+              protocol: UDP
+            - containerPort: 10395
+              protocol: UDP
+            - containerPort: 10396
+              protocol: UDP
+            - containerPort: 10397
+              protocol: UDP
+            - containerPort: 10398
+              protocol: UDP
+            - containerPort: 10399
+              protocol: UDP
+            - containerPort: 10400
+              protocol: UDP
+            - containerPort: 10401
+              protocol: UDP
+            - containerPort: 10402
+              protocol: UDP
+            - containerPort: 10403
+              protocol: UDP
+            - containerPort: 10404
+              protocol: UDP
+            - containerPort: 10405
+              protocol: UDP
+            - containerPort: 10406
+              protocol: UDP
+            - containerPort: 10407
+              protocol: UDP
+            - containerPort: 10408
+              protocol: UDP
+            - containerPort: 10409
+              protocol: UDP
+            - containerPort: 10410
+              protocol: UDP
+            - containerPort: 10411
+              protocol: UDP
+            - containerPort: 10412
+              protocol: UDP
+            - containerPort: 10413
+              protocol: UDP
+            - containerPort: 10414
+              protocol: UDP
+            - containerPort: 10415
+              protocol: UDP
+            - containerPort: 10416
+              protocol: UDP
+            - containerPort: 10417
+              protocol: UDP
+            - containerPort: 10418
+              protocol: UDP
+            - containerPort: 10419
+              protocol: UDP
+            - containerPort: 10420
+              protocol: UDP
+            - containerPort: 10421
+              protocol: UDP
+            - containerPort: 10422
+              protocol: UDP
+            - containerPort: 10423
+              protocol: UDP
+            - containerPort: 10424
+              protocol: UDP
+            - containerPort: 10425
+              protocol: UDP
+            - containerPort: 10426
+              protocol: UDP
+            - containerPort: 10427
+              protocol: UDP
+            - containerPort: 10428
+              protocol: UDP
+            - containerPort: 10429
+              protocol: UDP
+            - containerPort: 10430
+              protocol: UDP
+            - containerPort: 10431
+              protocol: UDP
+            - containerPort: 10432
+              protocol: UDP
+            - containerPort: 10433
+              protocol: UDP
+            - containerPort: 10434
+              protocol: UDP
+            - containerPort: 10435
+              protocol: UDP
+            - containerPort: 10436
+              protocol: UDP
+            - containerPort: 10437
+              protocol: UDP
+            - containerPort: 10438
+              protocol: UDP
+            - containerPort: 10439
+              protocol: UDP
+            - containerPort: 10440
+              protocol: UDP
+            - containerPort: 10441
+              protocol: UDP
+            - containerPort: 10442
+              protocol: UDP
+            - containerPort: 10443
+              protocol: UDP
+            - containerPort: 10444
+              protocol: UDP
+            - containerPort: 10445
+              protocol: UDP
+            - containerPort: 10446
+              protocol: UDP
+            - containerPort: 10447
+              protocol: UDP
+            - containerPort: 10448
+              protocol: UDP
+            - containerPort: 10449
+              protocol: UDP
+            - containerPort: 10450
+              protocol: UDP
+            - containerPort: 10451
+              protocol: UDP
+            - containerPort: 10452
+              protocol: UDP
+            - containerPort: 10453
+              protocol: UDP
+            - containerPort: 10454
+              protocol: UDP
+            - containerPort: 10455
+              protocol: UDP
+            - containerPort: 10456
+              protocol: UDP
+            - containerPort: 10457
+              protocol: UDP
+            - containerPort: 10458
+              protocol: UDP
+            - containerPort: 10459
+              protocol: UDP
+            - containerPort: 10460
+              protocol: UDP
+            - containerPort: 10461
+              protocol: UDP
+            - containerPort: 10462
+              protocol: UDP
+            - containerPort: 10463
+              protocol: UDP
+            - containerPort: 10464
+              protocol: UDP
+            - containerPort: 10465
+              protocol: UDP
+            - containerPort: 10466
+              protocol: UDP
+            - containerPort: 10467
+              protocol: UDP
+            - containerPort: 10468
+              protocol: UDP
+            - containerPort: 10469
+              protocol: UDP
+            - containerPort: 10470
+              protocol: UDP
+            - containerPort: 10471
+              protocol: UDP
+            - containerPort: 10472
+              protocol: UDP
+            - containerPort: 10473
+              protocol: UDP
+            - containerPort: 10474
+              protocol: UDP
+            - containerPort: 10475
+              protocol: UDP
+            - containerPort: 10476
+              protocol: UDP
+            - containerPort: 10477
+              protocol: UDP
+            - containerPort: 10478
+              protocol: UDP
+            - containerPort: 10479
+              protocol: UDP
+            - containerPort: 10480
+              protocol: UDP
+            - containerPort: 10481
+              protocol: UDP
+            - containerPort: 10482
+              protocol: UDP
+            - containerPort: 10483
+              protocol: UDP
+            - containerPort: 10484
+              protocol: UDP
+            - containerPort: 10485
+              protocol: UDP
+            - containerPort: 10486
+              protocol: UDP
+            - containerPort: 10487
+              protocol: UDP
+            - containerPort: 10488
+              protocol: UDP
+            - containerPort: 10489
+              protocol: UDP
+            - containerPort: 10490
+              protocol: UDP
+            - containerPort: 10491
+              protocol: UDP
+            - containerPort: 10492
+              protocol: UDP
+            - containerPort: 10493
+              protocol: UDP
+            - containerPort: 10494
+              protocol: UDP
+            - containerPort: 10495
+              protocol: UDP
+            - containerPort: 10496
+              protocol: UDP
+            - containerPort: 10497
+              protocol: UDP
+            - containerPort: 10498
+              protocol: UDP
+            - containerPort: 10499
+              protocol: UDP
+            - containerPort: 10500
+              protocol: UDP
+            - containerPort: 10501
+              protocol: UDP
+            - containerPort: 10502
+              protocol: UDP
+            - containerPort: 10503
+              protocol: UDP
+            - containerPort: 10504
+              protocol: UDP
+            - containerPort: 10505
+              protocol: UDP
+            - containerPort: 10506
+              protocol: UDP
+            - containerPort: 10507
+              protocol: UDP
+            - containerPort: 10508
+              protocol: UDP
+            - containerPort: 10509
+              protocol: UDP
+            - containerPort: 10510
+              protocol: UDP
+            - containerPort: 10511
+              protocol: UDP
+            - containerPort: 10512
+              protocol: UDP
+            - containerPort: 10513
+              protocol: UDP
+            - containerPort: 10514
+              protocol: UDP
+            - containerPort: 10515
+              protocol: UDP
+            - containerPort: 10516
+              protocol: UDP
+            - containerPort: 10517
+              protocol: UDP
+            - containerPort: 10518
+              protocol: UDP
+            - containerPort: 10519
+              protocol: UDP
+            - containerPort: 10520
+              protocol: UDP
+            - containerPort: 10521
+              protocol: UDP
+            - containerPort: 10522
+              protocol: UDP
+            - containerPort: 10523
+              protocol: UDP
+            - containerPort: 10524
+              protocol: UDP
+            - containerPort: 10525
+              protocol: UDP
+            - containerPort: 10526
+              protocol: UDP
+            - containerPort: 10527
+              protocol: UDP
+            - containerPort: 10528
+              protocol: UDP
+            - containerPort: 10529
+              protocol: UDP
+            - containerPort: 10530
+              protocol: UDP
+            - containerPort: 10531
+              protocol: UDP
+            - containerPort: 10532
+              protocol: UDP
+            - containerPort: 10533
+              protocol: UDP
+            - containerPort: 10534
+              protocol: UDP
+            - containerPort: 10535
+              protocol: UDP
+            - containerPort: 10536
+              protocol: UDP
+            - containerPort: 10537
+              protocol: UDP
+            - containerPort: 10538
+              protocol: UDP
+            - containerPort: 10539
+              protocol: UDP
+            - containerPort: 10540
+              protocol: UDP
+            - containerPort: 10541
+              protocol: UDP
+            - containerPort: 10542
+              protocol: UDP
+            - containerPort: 10543
+              protocol: UDP
+            - containerPort: 10544
+              protocol: UDP
+            - containerPort: 10545
+              protocol: UDP
+            - containerPort: 10546
+              protocol: UDP
+            - containerPort: 10547
+              protocol: UDP
+            - containerPort: 10548
+              protocol: UDP
+            - containerPort: 10549
+              protocol: UDP
+            - containerPort: 10550
+              protocol: UDP
+            - containerPort: 10551
+              protocol: UDP
+            - containerPort: 10552
+              protocol: UDP
+            - containerPort: 10553
+              protocol: UDP
+            - containerPort: 10554
+              protocol: UDP
+            - containerPort: 10555
+              protocol: UDP
+            - containerPort: 10556
+              protocol: UDP
+            - containerPort: 10557
+              protocol: UDP
+            - containerPort: 10558
+              protocol: UDP
+            - containerPort: 10559
+              protocol: UDP
+            - containerPort: 10560
+              protocol: UDP
+            - containerPort: 10561
+              protocol: UDP
+            - containerPort: 10562
+              protocol: UDP
+            - containerPort: 10563
+              protocol: UDP
+            - containerPort: 10564
+              protocol: UDP
+            - containerPort: 10565
+              protocol: UDP
+            - containerPort: 10566
+              protocol: UDP
+            - containerPort: 10567
+              protocol: UDP
+            - containerPort: 10568
+              protocol: UDP
+            - containerPort: 10569
+              protocol: UDP
+            - containerPort: 10570
+              protocol: UDP
+            - containerPort: 10571
+              protocol: UDP
+            - containerPort: 10572
+              protocol: UDP
+            - containerPort: 10573
+              protocol: UDP
+            - containerPort: 10574
+              protocol: UDP
+            - containerPort: 10575
+              protocol: UDP
+            - containerPort: 10576
+              protocol: UDP
+            - containerPort: 10577
+              protocol: UDP
+            - containerPort: 10578
+              protocol: UDP
+            - containerPort: 10579
+              protocol: UDP
+            - containerPort: 10580
+              protocol: UDP
+            - containerPort: 10581
+              protocol: UDP
+            - containerPort: 10582
+              protocol: UDP
+            - containerPort: 10583
+              protocol: UDP
+            - containerPort: 10584
+              protocol: UDP
+            - containerPort: 10585
+              protocol: UDP
+            - containerPort: 10586
+              protocol: UDP
+            - containerPort: 10587
+              protocol: UDP
+            - containerPort: 10588
+              protocol: UDP
+            - containerPort: 10589
+              protocol: UDP
+            - containerPort: 10590
+              protocol: UDP
+            - containerPort: 10591
+              protocol: UDP
+            - containerPort: 10592
+              protocol: UDP
+            - containerPort: 10593
+              protocol: UDP
+            - containerPort: 10594
+              protocol: UDP
+            - containerPort: 10595
+              protocol: UDP
+            - containerPort: 10596
+              protocol: UDP
+            - containerPort: 10597
+              protocol: UDP
+            - containerPort: 10598
+              protocol: UDP
+            - containerPort: 10599
+              protocol: UDP
+            - containerPort: 10600
+              protocol: UDP
+            - containerPort: 10601
+              protocol: UDP
+            - containerPort: 10602
+              protocol: UDP
+            - containerPort: 10603
+              protocol: UDP
+            - containerPort: 10604
+              protocol: UDP
+            - containerPort: 10605
+              protocol: UDP
+            - containerPort: 10606
+              protocol: UDP
+            - containerPort: 10607
+              protocol: UDP
+            - containerPort: 10608
+              protocol: UDP
+            - containerPort: 10609
+              protocol: UDP
+            - containerPort: 10610
+              protocol: UDP
+            - containerPort: 10611
+              protocol: UDP
+            - containerPort: 10612
+              protocol: UDP
+            - containerPort: 10613
+              protocol: UDP
+            - containerPort: 10614
+              protocol: UDP
+            - containerPort: 10615
+              protocol: UDP
+            - containerPort: 10616
+              protocol: UDP
+            - containerPort: 10617
+              protocol: UDP
+            - containerPort: 10618
+              protocol: UDP
+            - containerPort: 10619
+              protocol: UDP
+            - containerPort: 10620
+              protocol: UDP
+            - containerPort: 10621
+              protocol: UDP
+            - containerPort: 10622
+              protocol: UDP
+            - containerPort: 10623
+              protocol: UDP
+            - containerPort: 10624
+              protocol: UDP
+            - containerPort: 10625
+              protocol: UDP
+            - containerPort: 10626
+              protocol: UDP
+            - containerPort: 10627
+              protocol: UDP
+            - containerPort: 10628
+              protocol: UDP
+            - containerPort: 10629
+              protocol: UDP
+            - containerPort: 10630
+              protocol: UDP
+            - containerPort: 10631
+              protocol: UDP
+            - containerPort: 10632
+              protocol: UDP
+            - containerPort: 10633
+              protocol: UDP
+            - containerPort: 10634
+              protocol: UDP
+            - containerPort: 10635
+              protocol: UDP
+            - containerPort: 10636
+              protocol: UDP
+            - containerPort: 10637
+              protocol: UDP
+            - containerPort: 10638
+              protocol: UDP
+            - containerPort: 10639
+              protocol: UDP
+            - containerPort: 10640
+              protocol: UDP
+            - containerPort: 10641
+              protocol: UDP
+            - containerPort: 10642
+              protocol: UDP
+            - containerPort: 10643
+              protocol: UDP
+            - containerPort: 10644
+              protocol: UDP
+            - containerPort: 10645
+              protocol: UDP
+            - containerPort: 10646
+              protocol: UDP
+            - containerPort: 10647
+              protocol: UDP
+            - containerPort: 10648
+              protocol: UDP
+            - containerPort: 10649
+              protocol: UDP
+            - containerPort: 10650
+              protocol: UDP
+            - containerPort: 10651
+              protocol: UDP
+            - containerPort: 10652
+              protocol: UDP
+            - containerPort: 10653
+              protocol: UDP
+            - containerPort: 10654
+              protocol: UDP
+            - containerPort: 10655
+              protocol: UDP
+            - containerPort: 10656
+              protocol: UDP
+            - containerPort: 10657
+              protocol: UDP
+            - containerPort: 10658
+              protocol: UDP
+            - containerPort: 10659
+              protocol: UDP
+            - containerPort: 10660
+              protocol: UDP
+            - containerPort: 10661
+              protocol: UDP
+            - containerPort: 10662
+              protocol: UDP
+            - containerPort: 10663
+              protocol: UDP
+            - containerPort: 10664
+              protocol: UDP
+            - containerPort: 10665
+              protocol: UDP
+            - containerPort: 10666
+              protocol: UDP
+            - containerPort: 10667
+              protocol: UDP
+            - containerPort: 10668
+              protocol: UDP
+            - containerPort: 10669
+              protocol: UDP
+            - containerPort: 10670
+              protocol: UDP
+            - containerPort: 10671
+              protocol: UDP
+            - containerPort: 10672
+              protocol: UDP
+            - containerPort: 10673
+              protocol: UDP
+            - containerPort: 10674
+              protocol: UDP
+            - containerPort: 10675
+              protocol: UDP
+            - containerPort: 10676
+              protocol: UDP
+            - containerPort: 10677
+              protocol: UDP
+            - containerPort: 10678
+              protocol: UDP
+            - containerPort: 10679
+              protocol: UDP
+            - containerPort: 10680
+              protocol: UDP
+            - containerPort: 10681
+              protocol: UDP
+            - containerPort: 10682
+              protocol: UDP
+            - containerPort: 10683
+              protocol: UDP
+            - containerPort: 10684
+              protocol: UDP
+            - containerPort: 10685
+              protocol: UDP
+            - containerPort: 10686
+              protocol: UDP
+            - containerPort: 10687
+              protocol: UDP
+            - containerPort: 10688
+              protocol: UDP
+            - containerPort: 10689
+              protocol: UDP
+            - containerPort: 10690
+              protocol: UDP
+            - containerPort: 10691
+              protocol: UDP
+            - containerPort: 10692
+              protocol: UDP
+            - containerPort: 10693
+              protocol: UDP
+            - containerPort: 10694
+              protocol: UDP
+            - containerPort: 10695
+              protocol: UDP
+            - containerPort: 10696
+              protocol: UDP
+            - containerPort: 10697
+              protocol: UDP
+            - containerPort: 10698
+              protocol: UDP
+            - containerPort: 10699
+              protocol: UDP
+            - containerPort: 10700
+              protocol: UDP
+            - containerPort: 10701
+              protocol: UDP
+            - containerPort: 10702
+              protocol: UDP
+            - containerPort: 10703
+              protocol: UDP
+            - containerPort: 10704
+              protocol: UDP
+            - containerPort: 10705
+              protocol: UDP
+            - containerPort: 10706
+              protocol: UDP
+            - containerPort: 10707
+              protocol: UDP
+            - containerPort: 10708
+              protocol: UDP
+            - containerPort: 10709
+              protocol: UDP
+            - containerPort: 10710
+              protocol: UDP
+            - containerPort: 10711
+              protocol: UDP
+            - containerPort: 10712
+              protocol: UDP
+            - containerPort: 10713
+              protocol: UDP
+            - containerPort: 10714
+              protocol: UDP
+            - containerPort: 10715
+              protocol: UDP
+            - containerPort: 10716
+              protocol: UDP
+            - containerPort: 10717
+              protocol: UDP
+            - containerPort: 10718
+              protocol: UDP
+            - containerPort: 10719
+              protocol: UDP
+            - containerPort: 10720
+              protocol: UDP
+            - containerPort: 10721
+              protocol: UDP
+            - containerPort: 10722
+              protocol: UDP
+            - containerPort: 10723
+              protocol: UDP
+            - containerPort: 10724
+              protocol: UDP
+            - containerPort: 10725
+              protocol: UDP
+            - containerPort: 10726
+              protocol: UDP
+            - containerPort: 10727
+              protocol: UDP
+            - containerPort: 10728
+              protocol: UDP
+            - containerPort: 10729
+              protocol: UDP
+            - containerPort: 10730
+              protocol: UDP
+            - containerPort: 10731
+              protocol: UDP
+            - containerPort: 10732
+              protocol: UDP
+            - containerPort: 10733
+              protocol: UDP
+            - containerPort: 10734
+              protocol: UDP
+            - containerPort: 10735
+              protocol: UDP
+            - containerPort: 10736
+              protocol: UDP
+            - containerPort: 10737
+              protocol: UDP
+            - containerPort: 10738
+              protocol: UDP
+            - containerPort: 10739
+              protocol: UDP
+            - containerPort: 10740
+              protocol: UDP
+            - containerPort: 10741
+              protocol: UDP
+            - containerPort: 10742
+              protocol: UDP
+            - containerPort: 10743
+              protocol: UDP
+            - containerPort: 10744
+              protocol: UDP
+            - containerPort: 10745
+              protocol: UDP
+            - containerPort: 10746
+              protocol: UDP
+            - containerPort: 10747
+              protocol: UDP
+            - containerPort: 10748
+              protocol: UDP
+            - containerPort: 10749
+              protocol: UDP
+            - containerPort: 10750
+              protocol: UDP
+            - containerPort: 10751
+              protocol: UDP
+            - containerPort: 10752
+              protocol: UDP
+            - containerPort: 10753
+              protocol: UDP
+            - containerPort: 10754
+              protocol: UDP
+            - containerPort: 10755
+              protocol: UDP
+            - containerPort: 10756
+              protocol: UDP
+            - containerPort: 10757
+              protocol: UDP
+            - containerPort: 10758
+              protocol: UDP
+            - containerPort: 10759
+              protocol: UDP
+            - containerPort: 10760
+              protocol: UDP
+            - containerPort: 10761
+              protocol: UDP
+            - containerPort: 10762
+              protocol: UDP
+            - containerPort: 10763
+              protocol: UDP
+            - containerPort: 10764
+              protocol: UDP
+            - containerPort: 10765
+              protocol: UDP
+            - containerPort: 10766
+              protocol: UDP
+            - containerPort: 10767
+              protocol: UDP
+            - containerPort: 10768
+              protocol: UDP
+            - containerPort: 10769
+              protocol: UDP
+            - containerPort: 10770
+              protocol: UDP
+            - containerPort: 10771
+              protocol: UDP
+            - containerPort: 10772
+              protocol: UDP
+            - containerPort: 10773
+              protocol: UDP
+            - containerPort: 10774
+              protocol: UDP
+            - containerPort: 10775
+              protocol: UDP
+            - containerPort: 10776
+              protocol: UDP
+            - containerPort: 10777
+              protocol: UDP
+            - containerPort: 10778
+              protocol: UDP
+            - containerPort: 10779
+              protocol: UDP
+            - containerPort: 10780
+              protocol: UDP
+            - containerPort: 10781
+              protocol: UDP
+            - containerPort: 10782
+              protocol: UDP
+            - containerPort: 10783
+              protocol: UDP
+            - containerPort: 10784
+              protocol: UDP
+            - containerPort: 10785
+              protocol: UDP
+            - containerPort: 10786
+              protocol: UDP
+            - containerPort: 10787
+              protocol: UDP
+            - containerPort: 10788
+              protocol: UDP
+            - containerPort: 10789
+              protocol: UDP
+            - containerPort: 10790
+              protocol: UDP
+            - containerPort: 10791
+              protocol: UDP
+            - containerPort: 10792
+              protocol: UDP
+            - containerPort: 10793
+              protocol: UDP
+            - containerPort: 10794
+              protocol: UDP
+            - containerPort: 10795
+              protocol: UDP
+            - containerPort: 10796
+              protocol: UDP
+            - containerPort: 10797
+              protocol: UDP
+            - containerPort: 10798
+              protocol: UDP
+            - containerPort: 10799
+              protocol: UDP
+            - containerPort: 10800
+              protocol: UDP
+            - containerPort: 10801
+              protocol: UDP
+            - containerPort: 10802
+              protocol: UDP
+            - containerPort: 10803
+              protocol: UDP
+            - containerPort: 10804
+              protocol: UDP
+            - containerPort: 10805
+              protocol: UDP
+            - containerPort: 10806
+              protocol: UDP
+            - containerPort: 10807
+              protocol: UDP
+            - containerPort: 10808
+              protocol: UDP
+            - containerPort: 10809
+              protocol: UDP
+            - containerPort: 10810
+              protocol: UDP
+            - containerPort: 10811
+              protocol: UDP
+            - containerPort: 10812
+              protocol: UDP
+            - containerPort: 10813
+              protocol: UDP
+            - containerPort: 10814
+              protocol: UDP
+            - containerPort: 10815
+              protocol: UDP
+            - containerPort: 10816
+              protocol: UDP
+            - containerPort: 10817
+              protocol: UDP
+            - containerPort: 10818
+              protocol: UDP
+            - containerPort: 10819
+              protocol: UDP
+            - containerPort: 10820
+              protocol: UDP
+            - containerPort: 10821
+              protocol: UDP
+            - containerPort: 10822
+              protocol: UDP
+            - containerPort: 10823
+              protocol: UDP
+            - containerPort: 10824
+              protocol: UDP
+            - containerPort: 10825
+              protocol: UDP
+            - containerPort: 10826
+              protocol: UDP
+            - containerPort: 10827
+              protocol: UDP
+            - containerPort: 10828
+              protocol: UDP
+            - containerPort: 10829
+              protocol: UDP
+            - containerPort: 10830
+              protocol: UDP
+            - containerPort: 10831
+              protocol: UDP
+            - containerPort: 10832
+              protocol: UDP
+            - containerPort: 10833
+              protocol: UDP
+            - containerPort: 10834
+              protocol: UDP
+            - containerPort: 10835
+              protocol: UDP
+            - containerPort: 10836
+              protocol: UDP
+            - containerPort: 10837
+              protocol: UDP
+            - containerPort: 10838
+              protocol: UDP
+            - containerPort: 10839
+              protocol: UDP
+            - containerPort: 10840
+              protocol: UDP
+            - containerPort: 10841
+              protocol: UDP
+            - containerPort: 10842
+              protocol: UDP
+            - containerPort: 10843
+              protocol: UDP
+            - containerPort: 10844
+              protocol: UDP
+            - containerPort: 10845
+              protocol: UDP
+            - containerPort: 10846
+              protocol: UDP
+            - containerPort: 10847
+              protocol: UDP
+            - containerPort: 10848
+              protocol: UDP
+            - containerPort: 10849
+              protocol: UDP
+            - containerPort: 10850
+              protocol: UDP
+            - containerPort: 10851
+              protocol: UDP
+            - containerPort: 10852
+              protocol: UDP
+            - containerPort: 10853
+              protocol: UDP
+            - containerPort: 10854
+              protocol: UDP
+            - containerPort: 10855
+              protocol: UDP
+            - containerPort: 10856
+              protocol: UDP
+            - containerPort: 10857
+              protocol: UDP
+            - containerPort: 10858
+              protocol: UDP
+            - containerPort: 10859
+              protocol: UDP
+            - containerPort: 10860
+              protocol: UDP
+            - containerPort: 10861
+              protocol: UDP
+            - containerPort: 10862
+              protocol: UDP
+            - containerPort: 10863
+              protocol: UDP
+            - containerPort: 10864
+              protocol: UDP
+            - containerPort: 10865
+              protocol: UDP
+            - containerPort: 10866
+              protocol: UDP
+            - containerPort: 10867
+              protocol: UDP
+            - containerPort: 10868
+              protocol: UDP
+            - containerPort: 10869
+              protocol: UDP
+            - containerPort: 10870
+              protocol: UDP
+            - containerPort: 10871
+              protocol: UDP
+            - containerPort: 10872
+              protocol: UDP
+            - containerPort: 10873
+              protocol: UDP
+            - containerPort: 10874
+              protocol: UDP
+            - containerPort: 10875
+              protocol: UDP
+            - containerPort: 10876
+              protocol: UDP
+            - containerPort: 10877
+              protocol: UDP
+            - containerPort: 10878
+              protocol: UDP
+            - containerPort: 10879
+              protocol: UDP
+            - containerPort: 10880
+              protocol: UDP
+            - containerPort: 10881
+              protocol: UDP
+            - containerPort: 10882
+              protocol: UDP
+            - containerPort: 10883
+              protocol: UDP
+            - containerPort: 10884
+              protocol: UDP
+            - containerPort: 10885
+              protocol: UDP
+            - containerPort: 10886
+              protocol: UDP
+            - containerPort: 10887
+              protocol: UDP
+            - containerPort: 10888
+              protocol: UDP
+            - containerPort: 10889
+              protocol: UDP
+            - containerPort: 10890
+              protocol: UDP
+            - containerPort: 10891
+              protocol: UDP
+            - containerPort: 10892
+              protocol: UDP
+            - containerPort: 10893
+              protocol: UDP
+            - containerPort: 10894
+              protocol: UDP
+            - containerPort: 10895
+              protocol: UDP
+            - containerPort: 10896
+              protocol: UDP
+            - containerPort: 10897
+              protocol: UDP
+            - containerPort: 10898
+              protocol: UDP
+            - containerPort: 10899
+              protocol: UDP
+            - containerPort: 10900
+              protocol: UDP
+            - containerPort: 10901
+              protocol: UDP
+            - containerPort: 10902
+              protocol: UDP
+            - containerPort: 10903
+              protocol: UDP
+            - containerPort: 10904
+              protocol: UDP
+            - containerPort: 10905
+              protocol: UDP
+            - containerPort: 10906
+              protocol: UDP
+            - containerPort: 10907
+              protocol: UDP
+            - containerPort: 10908
+              protocol: UDP
+            - containerPort: 10909
+              protocol: UDP
+            - containerPort: 10910
+              protocol: UDP
+            - containerPort: 10911
+              protocol: UDP
+            - containerPort: 10912
+              protocol: UDP
+            - containerPort: 10913
+              protocol: UDP
+            - containerPort: 10914
+              protocol: UDP
+            - containerPort: 10915
+              protocol: UDP
+            - containerPort: 10916
+              protocol: UDP
+            - containerPort: 10917
+              protocol: UDP
+            - containerPort: 10918
+              protocol: UDP
+            - containerPort: 10919
+              protocol: UDP
+            - containerPort: 10920
+              protocol: UDP
+            - containerPort: 10921
+              protocol: UDP
+            - containerPort: 10922
+              protocol: UDP
+            - containerPort: 10923
+              protocol: UDP
+            - containerPort: 10924
+              protocol: UDP
+            - containerPort: 10925
+              protocol: UDP
+            - containerPort: 10926
+              protocol: UDP
+            - containerPort: 10927
+              protocol: UDP
+            - containerPort: 10928
+              protocol: UDP
+            - containerPort: 10929
+              protocol: UDP
+            - containerPort: 10930
+              protocol: UDP
+            - containerPort: 10931
+              protocol: UDP
+            - containerPort: 10932
+              protocol: UDP
+            - containerPort: 10933
+              protocol: UDP
+            - containerPort: 10934
+              protocol: UDP
+            - containerPort: 10935
+              protocol: UDP
+            - containerPort: 10936
+              protocol: UDP
+            - containerPort: 10937
+              protocol: UDP
+            - containerPort: 10938
+              protocol: UDP
+            - containerPort: 10939
+              protocol: UDP
+            - containerPort: 10940
+              protocol: UDP
+            - containerPort: 10941
+              protocol: UDP
+            - containerPort: 10942
+              protocol: UDP
+            - containerPort: 10943
+              protocol: UDP
+            - containerPort: 10944
+              protocol: UDP
+            - containerPort: 10945
+              protocol: UDP
+            - containerPort: 10946
+              protocol: UDP
+            - containerPort: 10947
+              protocol: UDP
+            - containerPort: 10948
+              protocol: UDP
+            - containerPort: 10949
+              protocol: UDP
+            - containerPort: 10950
+              protocol: UDP
+            - containerPort: 10951
+              protocol: UDP
+            - containerPort: 10952
+              protocol: UDP
+            - containerPort: 10953
+              protocol: UDP
+            - containerPort: 10954
+              protocol: UDP
+            - containerPort: 10955
+              protocol: UDP
+            - containerPort: 10956
+              protocol: UDP
+            - containerPort: 10957
+              protocol: UDP
+            - containerPort: 10958
+              protocol: UDP
+            - containerPort: 10959
+              protocol: UDP
+            - containerPort: 10960
+              protocol: UDP
+            - containerPort: 10961
+              protocol: UDP
+            - containerPort: 10962
+              protocol: UDP
+            - containerPort: 10963
+              protocol: UDP
+            - containerPort: 10964
+              protocol: UDP
+            - containerPort: 10965
+              protocol: UDP
+            - containerPort: 10966
+              protocol: UDP
+            - containerPort: 10967
+              protocol: UDP
+            - containerPort: 10968
+              protocol: UDP
+            - containerPort: 10969
+              protocol: UDP
+            - containerPort: 10970
+              protocol: UDP
+            - containerPort: 10971
+              protocol: UDP
+            - containerPort: 10972
+              protocol: UDP
+            - containerPort: 10973
+              protocol: UDP
+            - containerPort: 10974
+              protocol: UDP
+            - containerPort: 10975
+              protocol: UDP
+            - containerPort: 10976
+              protocol: UDP
+            - containerPort: 10977
+              protocol: UDP
+            - containerPort: 10978
+              protocol: UDP
+            - containerPort: 10979
+              protocol: UDP
+            - containerPort: 10980
+              protocol: UDP
+            - containerPort: 10981
+              protocol: UDP
+            - containerPort: 10982
+              protocol: UDP
+            - containerPort: 10983
+              protocol: UDP
+            - containerPort: 10984
+              protocol: UDP
+            - containerPort: 10985
+              protocol: UDP
+            - containerPort: 10986
+              protocol: UDP
+            - containerPort: 10987
+              protocol: UDP
+            - containerPort: 10988
+              protocol: UDP
+            - containerPort: 10989
+              protocol: UDP
+            - containerPort: 10990
+              protocol: UDP
+            - containerPort: 10991
+              protocol: UDP
+            - containerPort: 10992
+              protocol: UDP
+            - containerPort: 10993
+              protocol: UDP
+            - containerPort: 10994
+              protocol: UDP
+            - containerPort: 10995
+              protocol: UDP
+            - containerPort: 10996
+              protocol: UDP
+            - containerPort: 10997
+              protocol: UDP
+            - containerPort: 10998
+              protocol: UDP
+            - containerPort: 10999
+              protocol: UDP
+            - containerPort: 11000
+              protocol: UDP
+          resources: {}
+      restartPolicy: Always
+status: {}

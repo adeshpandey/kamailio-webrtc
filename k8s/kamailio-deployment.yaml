@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -f k8s-compose.yml -o k8s/
+    kompose.version: 1.26.1 (HEAD)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: kamailio
+  name: kamailio
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: kamailio
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert -f k8s-compose.yml -o k8s/
+        kompose.version: 1.26.1 (HEAD)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: kamailio
+    spec:
+      containers:
+        - args:
+            - -l
+            - udp:0.0.0.0:5060/192.168.59.105:30714
+            - -l
+            - tcp:0.0.0.0:5060/192.168.59.105:30714
+            - -l
+            - tls:0.0.0.0:8082/192.168.59.105:30393
+          env:
+            - name: PGPASSWORD
+              value: kamailio
+          image: adeshpandey/kamailio
+          imagePullPolicy: Never
+          name: kamailio
+          ports:
+            - containerPort: 5060
+            - containerPort: 8082
+            - containerPort: 8083
+          resources: {}
+      restartPolicy: Always
+status: {}
