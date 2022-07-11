@@ -1,5 +1,4 @@
-version: '3.9'
-
+version: '3.3'
 services: 
   adminer:
     image: adminer
@@ -14,7 +13,7 @@ services:
     volumes:
       - postgres-vol:/bitnami/postgresql
     restart: unless-stopped
-  rtpproxy:
+  rtpproxy1:
     build: ./rtpproxy
     image: adeshpandey/rtpproxy
     ports:
@@ -23,17 +22,60 @@ services:
       - PUBLIC_IP=${PUBLIC_IP}
       - START_PORT=10000
       - END_PORT=10020
+  rtpproxy2:
+    image: adeshpandey/rtpproxy
+    ports:
+      - 10021-10040:10021-10040/udp
+    environment:
+      - PUBLIC_IP=${PUBLIC_IP}
+      - START_PORT=10021
+      - END_PORT=10040
+    depends_on:
+      - rtpproxy1
+  rtpengine:
+    build: ./rtpengine
+    image: adeshpandey/rtpengine
+    ports:
+      - 10041-11000:10041-11000/udp
+    environment:
+      - PUBLIC_IP=${PUBLIC_IP}
+      - START_PORT=10021
+      - END_PORT=11000
+    depends_on:
+      - rtpproxy1
   kamailio:
-    image: 'kamailio/kamailio:5.2.3-bionic'
+    build: ./kamailio
     restart: unless-stopped
+    environment:
+      - PGPASSWORD=${PGPASSWORD}
     volumes:
       - ./kamailio/kamctlrc:/etc/kamailio/kamctlrc
+      - ./kamailio/modules.cfg:/etc/kamailio/modules.cfg
       - ./kamailio/kamailio.cfg:/etc/kamailio/kamailio.cfg
+      - ./kamailio/tls.cfg:/etc/kamailio/tls.cfg
+      - ./kamailio/tls/kamailio.crt:/etc/kamailio/kamailio.crt
+      - ./kamailio/tls/kamailio.key:/etc/kamailio/kamailio.key
     ports:
-      - 5060:5060
+      - 8060:8060
+      - 8082:8082
+      - 8083:8083
     depends_on:
       - db
-      - rtpproxy
-    command: "-l udp:0.0.0.0:5060/${PUBLIC_IP}:5060 -l tcp:0.0.0.0:5060/${PUBLIC_IP}"
+      - rtpengine
+    command: "-l udp:0.0.0.0:8060/${PUBLIC_IP}:8060 -l tcp:0.0.0.0:8060/${PUBLIC_IP}:8060 -l tls:0.0.0.0:8082/${PUBLIC_IP}:8082"
+  # webapp:
+  #   image: nginx
+  #   volumes:
+  #     - ./sip-interface/build:/usr/share/nginx/html
+  #     - ./webapp/tls:/etc/nginx/certs
+  #     - ./webapp/default.conf:/etc/nginx/conf.d/default.conf
+  #   ports:
+  #     - 80:80
+  #     - 443:443
 volumes:
   postgres-vol:
+
+networks:
+  default:
+    external: true
+    name: unifonic-voice-network
