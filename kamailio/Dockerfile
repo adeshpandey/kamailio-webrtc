@@ -1,0 +1,14 @@
+FROM kamailio/kamailio:5.4.6-stretch
+RUN apt update
+RUN apt install -y kamailio-websocket-modules kamailio-tls-modules kamailio-postgres-modules
+COPY ./.pgpass /root/.pgpass
+COPY ./kamctlrc /etc/kamailio/kamctlrc
+COPY ./modules.cfg /etc/kamailio/modules.cfg
+COPY ./kamailio.cfg /etc/kamailio/kamailio.cfg
+COPY ./tls.cfg /etc/kamailio/tls.cfg
+COPY ./tls/kamailio.crt /etc/kamailio/kamailio.crt
+COPY ./tls/kamailio.key /etc/kamailio/kamailio.key
+COPY ./entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+RUN chmod 777 /root/.pgpass
+ENTRYPOINT [ "/entrypoint.sh" ]
