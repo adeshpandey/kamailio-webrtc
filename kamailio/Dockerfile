@@ -3,7 +3,6 @@ RUN apt update
 RUN apt install -y kamailio-websocket-modules kamailio-tls-modules kamailio-postgres-modules
 COPY ./.pgpass /root/.pgpass
 COPY ./kamctlrc /etc/kamailio/kamctlrc
-COPY ./modules.cfg /etc/kamailio/modules.cfg
 COPY ./kamailio.cfg /etc/kamailio/kamailio.cfg
 COPY ./tls.cfg /etc/kamailio/tls.cfg
 COPY ./tls/kamailio.crt /etc/kamailio/kamailio.crt
