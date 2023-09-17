@@ -1,4 +1,3 @@
-Dockerfile
 .env
 out.log
 kamailio/kam-poc.cfg

@@ -10,6 +10,8 @@ services:
     environment:
       POSTGRESQL_USERNAME: ${PGUSERNAME}
       POSTGRESQL_PASSWORD: ${PGPASSWORD}
+    ports:
+      - 15432:5432
     volumes:
       - postgres-vol:/bitnami/postgresql
     restart: unless-stopped
@@ -49,11 +51,7 @@ services:
     environment:
       - PGPASSWORD=${PGPASSWORD}
     volumes:
-      - ./kamailio/kamctlrc:/etc/kamailio/kamctlrc
-      - ./kamailio/kamailio.cfg:/etc/kamailio/kamailio.cfg
-      - ./kamailio/tls.cfg:/etc/kamailio/tls.cfg
-      - ./kamailio/tls/kamailio.crt:/etc/kamailio/kamailio.crt
-      - ./kamailio/tls/kamailio.key:/etc/kamailio/kamailio.key
+      - ./etc:/etc/kamailio
     ports:
       - 8060:8060
       - 8082:8082

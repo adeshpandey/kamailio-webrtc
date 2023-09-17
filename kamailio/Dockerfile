@@ -1,6 +1,6 @@
-FROM kamailio/kamailio:5.4.6-stretch
-RUN apt update
-RUN apt install -y kamailio-websocket-modules kamailio-tls-modules kamailio-postgres-modules
+FROM kamailio/kamailio-ci:5.5.2-alpine
+RUN apk upgrade --no-cache
+RUN apk add postgresql-client
 COPY ./.pgpass /root/.pgpass
 COPY ./kamctlrc /etc/kamailio/kamctlrc
 COPY ./kamailio.cfg /etc/kamailio/kamailio.cfg
@@ -10,4 +10,4 @@ COPY ./tls/kamailio.key /etc/kamailio/kamailio.key
 COPY ./entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 RUN chmod 777 /root/.pgpass
-ENTRYPOINT [ "/entrypoint.sh" ]
+ENTRYPOINT ["/bin/sh", "/entrypoint.sh" ]
